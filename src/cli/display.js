@@ -25,6 +25,20 @@ export function displayRecipeList(recipes) {
   // Create a table with columns for ID, Name, Cooking Time, and Servings
   // Example of creating a table with cli-table3:
   const table = new Table({
+    chars: {
+      top: '═',
+      'top-mid': '╤',
+      'top-left': '╔',
+      'top-right': '╗',
+      bottom: '═',
+      'bottom-mid': '╧',
+      'bottom-left': '╚',
+      'bottom-right': '╝',
+      left: '║',
+      'left-mid': '╟',
+      right: '║',
+      'right-mid': '╢',
+    },
     head: [
       chalk.cyan('ID'),
       // Add more column headers here
@@ -32,7 +46,8 @@ export function displayRecipeList(recipes) {
       chalk.cyan('Cooking Time'),
       chalk.cyan('Servings'),
     ],
-    colWidths: [15, 15, 15, 15]
+    wordWrap: true,
+    colWidths: [15, 25, 15, 15]
   });
 
   // Add each recipe as a row in the table
